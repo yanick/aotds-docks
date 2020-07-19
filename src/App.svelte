@@ -43,7 +43,7 @@
 </script>
 
 <main>
-    <input type="button" value="reset" on:click={reset} />
+    <input class="reset" type="button" value="reset" on:click={reset} />
 
     <Identification />
 
@@ -90,4 +90,6 @@
   main :global(> *) {
     grid-column: 1;
   }
+
+  input.reset { grid-column: 2 }
 </style>
