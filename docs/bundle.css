@@ -1,0 +1,10 @@
+.ship_cost.svelte-gem05a{display:flex;grid-column:span 3;justify-content:space-around}.warning.svelte-gem05a{color:red}.note.svelte-gem05a{font-size:smaller}
+label.svelte-3o61d2{font-size:var(--font-scale-8)}
+.ship-item.svelte-1lm5rz9{display:flex}.ship-item.svelte-1lm5rz9 > *{flex:1}.cost.svelte-1lm5rz9,.mass.svelte-1lm5rz9{width:4em;flex:inherit}.cost.svelte-1lm5rz9:after{content:'\00A4';margin-left:0.5em}.mass.svelte-1lm5rz9:after{content:url("/mass.svg");width:0.75em;display:inline-block;margin-left:0.5em}
+.identification.svelte-s9rqmp{grid-column:span 3;display:flex;justify-content:space-around}
+path.svelte-7q6uh5{fill:lightgrey;stroke:white;stroke-width:2px}path.svelte-7q6uh5:hover{fill:pink}path.active.svelte-7q6uh5:hover{fill:pink}path.active.svelte-7q6uh5{fill:#313131}
+.weapon.svelte-9a4hq2.svelte-9a4hq2{display:flex;align-items:center}.weapon.svelte-9a4hq2>.svelte-9a4hq2{margin-right:2em}.add-weapon.svelte-9a4hq2.svelte-9a4hq2{display:block}circle.svelte-9a4hq2.svelte-9a4hq2{fill:white}
+label.svelte-1ozsoxu{display:inline;margin-right:1em}
+div.svelte-ziz3p7{display:flex;align-items:end}label.svelte-ziz3p7{margin-left:2em}
+.weapon>.svelte-1hrwfx3{margin-right:2em}circle.svelte-1hrwfx3{fill:white}.remove.svelte-1hrwfx3{width:1em;flex:0;color:white;background-color:black;border-radius:0.5em;height:1em}
+main.svelte-13vgd5c{display:grid;width:60em;grid-template-columns:4fr 1fr 1fr}main.svelte-13vgd5c > *{grid-column:1}
