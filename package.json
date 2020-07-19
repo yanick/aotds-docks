@@ -1,12 +1,136 @@
 {
-  "name": "shipyard",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+   "author": "Yanick Champoux <yanick@babyl.ca>",
+   "dependencies": {
+      "@babel/cli": "^7.10.1",
+      "@babel/core": "^7.10.2",
+      "@babel/node": "^7.10.1",
+      "@material/animation": "^7.0.0",
+      "@material/base": "^7.0.0",
+      "@material/density": "^7.0.0",
+      "@material/feature-targeting": "^7.0.0",
+      "@material/floating-label": "^7.0.0",
+      "@material/line-ripple": "^7.0.0",
+      "@material/notched-outline": "^7.0.0",
+      "@material/ripple": "^7.0.0",
+      "@material/rtl": "^7.0.0",
+      "@material/shape": "^7.0.0",
+      "@material/textfield": "^6.0.0",
+      "@material/theme": "^7.0.0",
+      "@material/typography": "^7.0.0",
+      "@smui/floating-label": "^1.0.0-beta.21",
+      "@smui/line-ripple": "^1.0.0-beta.21",
+      "@smui/notched-outline": "^1.0.0-beta.21",
+      "@smui/textfield": "^1.0.0-beta.21",
+      "@storybook/svelte": "^5.3.19",
+      "babel-loader": "^8.1.0",
+      "css-loader": "^3.6.0",
+      "dart-sass": "^1.25.0",
+      "lodash": "^4.17.15",
+      "mini-css-extract-plugin": "^0.9.0",
+      "node-sass": "^4.14.1",
+      "prettier": "2.0.5",
+      "prettier-plugin-svelte": "1.1.0",
+      "redux": "^4.0.5",
+      "reselect": "^4.0.0",
+      "rollup-plugin-css-only": "^2.1.0",
+      "rollup-plugin-postcss": "^3.1.2",
+      "rollup-plugin-scss": "^2.5.0",
+      "sass": "^1.26.9",
+      "sass-loader": "^8.0.2",
+      "sirv-cli": "^0.4.4",
+      "style-loader": "^1.2.1",
+      "svelte-loader": "^2.13.6",
+      "svelte3-redux": "^0.3.0",
+      "ts-action": "^11.0.0",
+      "updeep": "^1.2.0",
+      "updux": "^2.1.0",
+      "webpack": "^4.43.0",
+      "webpack-cli": "^3.3.12",
+      "webpack-dev-server": "^3.11.0"
+   },
+   "description": "Full Thrust ship builder",
+   "devDependencies": {
+      "@rollup/plugin-alias": "^3.1.1",
+      "@rollup/plugin-commonjs": "^12.0.0",
+      "@rollup/plugin-node-resolve": "^8.0.0",
+      "eslint": "7.4.0",
+      "eslint-config-prettier": "6.11.0",
+      "eslint-plugin-babel": "5.3.1",
+      "eslint-plugin-lodash": "^7.1.0",
+      "eslint-plugin-prettier": "3.1.4",
+      "eslint-plugin-svelte3": "2.7.3",
+      "eslint-plugin-you-dont-need-lodash-underscore": "^6.10.0",
+      "npm-run-all": "^4.1.5",
+      "rollup": "^2.3.4",
+      "rollup-plugin-livereload": "^1.0.0",
+      "rollup-plugin-svelte": "^5.0.3",
+      "rollup-plugin-terser": "^5.1.2",
+      "svelte": "^3.0.0",
+      "svelte-material-ui": "^1.0.0-beta.21",
+      "tap": "^14.10.7"
+   },
+   "eslintConfig": {
+      "env": {
+         "amd": true,
+         "browser": true,
+         "es6": true,
+         "node": true
+      },
+      "extends": [
+         "prettier",
+         "eslint:recommended",
+         "plugin:you-dont-need-lodash-underscore/compatible",
+         "plugin:lodash/recommended"
+      ],
+      "ignorePatterns": [
+         "src/node_modules"
+      ],
+      "overrides": [
+         {
+            "files": [
+               "*.svelte"
+            ],
+            "processor": "svelte3/svelte3"
+         }
+      ],
+      "parserOptions": {
+         "ecmaFeatures": {
+            "modules": true
+         },
+         "ecmaVersion": "2020",
+         "sourceType": "module"
+      },
+      "plugins": [
+         "svelte3"
+      ],
+      "rules": {
+         "lodash/prefer-lodash-method": "off"
+      }
+   },
+   "keywords": [
+      "game"
+   ],
+   "license": "ISC",
+   "main": "index.js",
+   "name": "shipyard",
+   "prettier": {
+      "svelteSortOrder": "markup-scripts-styles",
+      "svelteStrictMode": false
+   },
+   "scripts": {
+      "build": "NODE_ENV=production webpack",
+      "lint": "npm-run-all --parallel \"lint:prettier -- {@}\" \"lint:eslint -- {@}\" --",
+      "lint:eslint": "./scripts/eslint",
+      "lint:eslint:fix": "npm run lint:eslint -- --fix",
+      "lint:fix": "npm-run-all \"lint:eslint:fix -- {@}\" \"lint:prettier:fix -- {@}\" --",
+      "lint:prettier": "./scripts/prettier",
+      "lint:prettier:fix": "npm run lint:prettier -- --fix",
+      "package": "./scripts/merge_package.pl",
+      "start": "webpack-dev-server --open --content-base public",
+      "test": "tap 'src/**test.js' --no-coverage"
+   },
+   "tap": {
+      "coverage": false
+   },
+   "version": "0.0.1"
 }
