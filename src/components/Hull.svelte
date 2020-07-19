@@ -9,7 +9,9 @@
 </ShipItem>
 
 
+<!--
 <Screens {screens} on:add_screen />
+-->
 
 </Section>
 
