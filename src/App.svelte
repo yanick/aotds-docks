@@ -38,7 +38,7 @@
 
   const reset = ship.dispatch.reset;
 
-  const add_screen = ({detail}) => ship.dispatch.add_screen(detail);
+  const set_screens = ({detail}) => ship.dispatch.set_screens(detail);
 
 </script>
 
@@ -49,10 +49,10 @@
 
     <ShipCost />
 
-    <Propulsion 
-        ftl={$ship.ftl} 
+    <Propulsion
+        ftl={$ship.ftl}
         engine={$ship.engine}
-        on:change_ftl={change_ftl} 
+        on:change_ftl={change_ftl}
         on:change_engine={change_engine}
         />
 
@@ -60,7 +60,7 @@
         { ... $ship.structure.hull }
         on:change_hull={change_hull}
         screens={ $ship.structure.screens}
-        on:add_screen={add_screen}
+        on:set_screens={set_screens}
         />
 
 
