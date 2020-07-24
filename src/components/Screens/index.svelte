@@ -1,10 +1,14 @@
 
-<input type="button" value="add screen" on:click={() => add_screen()} />
-<input type="button" value="add advanced screen" 
-    on:click={ () => add_screen(true) }/>
+<ShipItem { cost } { mass }>
 
-<ShipItem cost="10" mass="10">
-    { nbr_regular } { nbr_advanced }
+  <Field label="screens">
+    <input type="number" bind:value={standard} min="0" />
+  </Field>
+
+  <Field label="advanced screens">
+    <input type="number" bind:value={advanced} min="0" />
+  </Field>
+
 </ShipItem>
 
 <script>
@@ -14,18 +18,20 @@
     import Field from '~C/Field';
     import ShipItem from '~C/ShipItem';
 
-    export let screens = [];
-
-    $: if( !Array.isArray(screens) ) screens = [];
+    export let cost = 0;
+    export let mass = 0;
+    export let standard = 0;
+    export let advanced = 0;
 
     let nbr_regular, nbr_advanced;
-    $: {
-        nbr_regular = screens.filter( ({advanced}) => !advanced ).length;
-        nbr_advanced = screens.length - nbr_regular;
-    }
 
     const dispatch = createEventDispatcher();
-    const add_screen = (advanced) => {
-    console.log(advanced); return dispatch( 'add_screen', advanced ); };
 
+    $: dispatch( 'set_screens', { standard, advanced } );
 </script>
+
+<style>
+  input {
+    width: 3em;
+  }
+  </style>
