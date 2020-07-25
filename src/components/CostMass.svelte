@@ -16,4 +16,6 @@
   .cost:after { content: '\00A4'; margin-left: 0.5em; }
   .mass:after { content: url("mass.svg"); width: 0.75em; display:
   inline-block; margin-left: 0.5em; }
+
+
 </style>
