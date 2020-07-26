@@ -14,6 +14,7 @@
   import Section from '~C/Section';
   import Weapon from '~C/Weapon';
   import Cargo from '~C/Cargo/index.svelte';
+  import Streamlining from '~C/Streamlining/index.svelte';
 
     const ship = shipStore();
 
@@ -44,6 +45,8 @@
   const set_screens = ({detail}) => ship.dispatch.set_screens(detail);
 
   const ship_dispatch = ({detail}) => ship.dispatch(detail);
+
+  setContext( 'ship_change', ship.dispatch );
 
 </script>
 
@@ -87,7 +90,9 @@
 
     <Section label="misc">
       <Cargo {...$ship.cargo} on:set_cargo={ship_dispatch}/>
+      <Streamlining {...$ship.streamlining} />
     </Section>
+
 
 </main>
 
