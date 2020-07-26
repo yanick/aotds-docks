@@ -65,7 +65,9 @@
         { ... $ship.structure.hull }
         on:change_hull={change_hull}
         screens={ $ship.structure.screens}
+        armour={$ship.structure.armour}
         on:set_screens={set_screens}
+        on:ship_change={ship_dispatch}
         />
 
 

@@ -11,6 +11,8 @@
 
 <Screens {...screens} on:set_screens />
 
+<Armour {armour} on:ship_change />
+
 </Section>
 
 <script>
@@ -20,9 +22,10 @@
     import Field from '~C/Field';
     import ShipItem from '~C/ShipItem';
     import Screens from './Screens';
+    import Armour from './Armour';
 
-    export let cost, mass, ship_mass, rating, screens = (
-        0, 0, 10, 1, []
+    export let cost, mass, ship_mass, rating, screens, armour = (
+        0, 0, 10, 1, [], []
     );
 
     let min, max;

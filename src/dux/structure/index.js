@@ -4,6 +4,7 @@ import u from "updeep";
 import { createSelector } from "reselect";
 
 import screens from './screens';
+import armour from './armour';
 
 const dux = new Updux({
     initial: {
@@ -17,7 +18,8 @@ const dux = new Updux({
       }
     },
     subduxes: {
-        screens
+        screens,
+        armour,
     }
 })
 
