@@ -8,17 +8,18 @@
   import get from 'lodash/get';
   import ShipItem from '~C/ShipItem/index.svelte';
   import Field from '~C/Field/index.svelte';
+  import dux from '~/dux/cargo';
 
-  import {getContext} from 'svelte';
+  import {getContext, createEventDispatcher} from 'svelte';
 
   const ship = getContext('ship');
 
   export let space = 0;
   export let cost = 0;
   export let mass = 0;
-  export let set_cargo = get(ship,'dispatch.set_cargo',() => {});
 
-  $: set_cargo( space );
+  const dispatch = createEventDispatcher();
+  $: dispatch( 'set_cargo', dux.actions.set_cargo( space ) );
 
   </script>
 

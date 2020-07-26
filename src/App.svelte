@@ -43,6 +43,8 @@
 
   const set_screens = ({detail}) => ship.dispatch.set_screens(detail);
 
+  const ship_dispatch = ({detail}) => ship.dispatch(detail);
+
 </script>
 
 <main>
@@ -82,7 +84,7 @@
     </Section>
 
     <Section label="misc">
-      <Cargo {...$ship.cargo} />
+      <Cargo {...$ship.cargo} on:set_cargo={ship_dispatch}/>
     </Section>
 
 </main>
