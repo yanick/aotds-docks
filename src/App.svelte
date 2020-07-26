@@ -3,7 +3,9 @@
 
     import shipStore from './stores/ship';
 
+  import ShipItem from './components/ShipItem/index.svelte';
   import ShipCost from './components/ShipCost.svelte';
+  import Field from './components/Field/index.svelte';
     import Hull from './components/Hull.svelte';
   import Identification from './components/Identification.svelte';
   import Firecons from './components/Firecons.svelte';
@@ -11,6 +13,7 @@
   import Propulsion from './components/Propulsion/index.svelte';
   import Section from '~C/Section';
   import Weapon from '~C/Weapon';
+  import Cargo from '~C/Cargo/index.svelte';
 
     const ship = shipStore();
 
@@ -76,6 +79,10 @@
         {/each}
 
 
+    </Section>
+
+    <Section label="misc">
+      <Cargo {...$ship.cargo} />
     </Section>
 
 </main>

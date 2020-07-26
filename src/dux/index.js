@@ -10,6 +10,7 @@ import { calc_ftl_reqs } from "./ftl/rules";
 import { calc_ship_req } from "./utils";
 import { candidate_ship_types } from './ship_types';
 import structure from './structure';
+import cargo from './cargo';
 
 const set_ship_mass = action("set_ship_mass", payload());
 const set_name = action("set_name", payload());
@@ -33,7 +34,7 @@ const initial = {
   };
 
 const dux = new Updux({
-  subduxes: { ftl, engine, weaponry, structure },
+  subduxes: { ftl, engine, weaponry, structure, cargo },
   initial
 });
 
