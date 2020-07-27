@@ -9,7 +9,6 @@
     import Hull from './components/Hull.svelte';
   import Identification from './components/Identification.svelte';
   import Firecons from './components/Firecons.svelte';
-  import AddWeapon from './components/Weapons/Add.svelte';
   import Propulsion from './components/Propulsion/index.svelte';
   import Section from '~C/Section';
   import Weapon from '~C/Weapon';
@@ -17,6 +16,7 @@
   import Streamlining from '~C/Streamlining/index.svelte';
   import Carrier from '~C/Carrier';
   import ADFC from '~C/Weaponry/ADFC';
+  import AddWeapon from '~C/Weaponry/AddWeapon';
 
     const ship = shipStore();
 
@@ -81,7 +81,7 @@
 
           <ADFC {...$ship.weaponry.adfc } />
 
-        <input type="button" value="add weapon" on:click={add_weapon}/>
+        <AddWeapon />
 
         {#each weapons as weapon (weapon.id)}
             <Weapon {weapon} id={weapon.id} cost={weapon.cost} mass={weapon.mass} />

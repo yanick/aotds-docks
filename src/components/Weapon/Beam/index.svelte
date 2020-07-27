@@ -1,5 +1,6 @@
+<label>beam</label>
 
-<Field label="weapon class">
+<Field label="beam class">
 <select bind:value={weapon_class}>
 <option>1</option>
 <option>2</option>
@@ -16,20 +17,12 @@
     </select>
 </Field>
 
-
-<svg width="60px" height="60px">
-{#each all_arcs as arc (arc)}
-    <Arc {arc} radius={30} 
-        active={arcs.includes(arc)}
-        on:click={()=>click_arc(arc)}
-    />
-{/each}
-    <circle cx="30" cy="30" r="15" />
-</svg>
+<Arcs selected={arcs} on:click_arc={({detail}) => click_arc(detail)} />
 
 <script>
   import {getContext } from 'svelte';
     import Arc from '../../Weapons/Arc.svelte';
+    import Arcs from '../Arcs';
     import { weapon_cost_mass } from '~/dux/weapons/rules';
     import fp from 'lodash/fp';
     import _ from 'lodash';
@@ -115,8 +108,5 @@
     margin-right: 1em;
 }
 
-circle {
-    fill: white;
-}
   </style>
 

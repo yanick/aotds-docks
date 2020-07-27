@@ -7,6 +7,21 @@ export function weapon_cost_mass(weapon){
         return beam_cost_mass(weapon);
     }
 
+    if( weapon.weapon_type == 'submunition' ) {
+        return { mass: 1, cost: 3 };
+    }
+
+    if( weapon.weapon_type === 'pds' ) {
+        return { mass: 1, cost: 3 };
+    }
+
+    if( weapon.weapon_type === 'scattergun' ) {
+        return { mass: 1, cost: 4 };
+    }
+
+    if( weapon.weapon_type === 'needle' ) {
+        return { mass: 2, cost: 6 };
+    }
 
     return { cost, mass };
 }

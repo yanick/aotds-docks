@@ -2,11 +2,6 @@
 
 <div class="remove" on:click={remove}>X</div>
 
-<Field label="weapon type">
-<select bind:value={weapon_type}>
-    <option>beam</option>
-</select>
-</Field>
 
 <svelte:component this={weapon_component[weapon_type]} {...weapon} 
     on:change={update}/>
@@ -23,10 +18,18 @@
     import ShipItem from '~C/ShipItem';
     import Field from '~C/Field';
     import Beam from './Beam';
+    import Submunition from './Submunition';
+    import PointDefenceSystem from './PointDefenceSystem';
+    import Scattergun from './Scattergun';
+    import Needle from './Needle';
     import dux from '~/dux';
 
   const weapon_component = {
     beam: Beam,
+    'submunition': Submunition,
+    'pds': PointDefenceSystem,
+    scattergun: Scattergun,
+    needle: Needle,
   };
 
     export let weapon = {};
@@ -35,10 +38,10 @@
     export let mass;
     export let ship_change = getContext('ship_change') || ( () => {} );
 
-    let weapon_type;
-    $: weapon_type = weapon.weapon_type;
+    let weapon_type = weapon.weapon_type;
 
     const remove = () => ship_change( dux.actions.remove_weapon(id) );
+
 
   const update = ({detail}) => {
     ship_change( dux.actions.set_weapon({
