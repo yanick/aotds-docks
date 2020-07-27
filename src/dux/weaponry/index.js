@@ -4,6 +4,7 @@ import u from "updeep";
 import { createSelector } from "reselect";
 
 import weapons from './weapons';
+import adfc from './adfc';
 
 const dux = new Updux({
     initial: {
@@ -13,6 +14,7 @@ const dux = new Updux({
     },
     subduxes: {
         weapons,
+        adfc,
     }
 })
 

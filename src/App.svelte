@@ -16,6 +16,7 @@
   import Cargo from '~C/Cargo/index.svelte';
   import Streamlining from '~C/Streamlining/index.svelte';
   import Carrier from '~C/Carrier';
+  import ADFC from '~C/Weaponry/ADFC';
 
     const ship = shipStore();
 
@@ -78,6 +79,8 @@
     <Section label="weaponry">
         <Firecons { ... $ship.weaponry.firecons }
             on:change_firecons={ change_firecons }/>
+
+          <ADFC {...$ship.weaponry.adfc } />
 
         <input type="button" value="add weapon" on:click={add_weapon}/>
 
