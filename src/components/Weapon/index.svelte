@@ -41,6 +41,8 @@
 </ShipItem>
 
 <script>
+  import {getContext } from 'svelte';
+
     import Arc from '../Weapons/Arc.svelte';
     import { weapon_cost_mass } from '../../dux/weapons/rules.js';
     import fp from 'lodash/fp';
@@ -48,6 +50,8 @@
     import { createEventDispatcher } from 'svelte';
     import ShipItem from '~C/ShipItem';
     import Field from '~C/Field';
+    import dux from '~/dux';
+
 
     const all_arcs = [ 'FS', 'F', 'FP', 'AP', 'A', 'AS' ];
 
@@ -57,6 +61,7 @@
     export let arcs = [];
     export let cost;
     export let mass;
+    export let ship_change = getContext('ship_change') || ( () => {} );
 
     let arc_options = {
         1: [ 6],
@@ -110,21 +115,14 @@
     let i = 1;
     $: if(weapon_class) i = 1;
 
-    $: console.log( "id", id);
-    $: console.log( "weapon_class", weapon_class);
-    $: console.log( "weapon_type", weapon_type);
-    $: console.log( "arcs", arcs);
-    const dispatch = createEventDispatcher();
     let cache = '';
     $: cache = arcs.join(":");
-    $: { 
-        //console.log( { id, weapon_class, weapon_type, arcs: cache.split(":") });
-        dispatch( 'change_weapon', { id, weapon_class, weapon_type, arcs:
-        cache.split(":") });
-    }
 
+    const remove = () => ship_change( dux.actions.remove_weapon(id) );
 
-    const remove = () => dispatch( 'remove_weapon', id );
+    $: ship_change( dux.actions.set_weapon({
+      id, weapon_class, weapon_type, arcs: cache.split(":")
+    }));
 
 </script>
 

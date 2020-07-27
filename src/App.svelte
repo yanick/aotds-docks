@@ -36,7 +36,6 @@
   const change_hull = ({detail}) => ship.dispatch.set_hull(detail);
   const change_firecons = ({detail}) => ship.dispatch.set_firecons(detail);
   const change_weapon = ({detail}) => ship.dispatch.set_weapon(detail);
-  const remove_weapon = ({detail}) => ship.dispatch.remove_weapon(detail);
 
   let weapons = [];
   $: console.log(weapons);
@@ -86,7 +85,7 @@
 
         {#each weapons as weapon (weapon.id)}
             <Weapon {...weapon} on:change_weapon={change_weapon}
-                on:remove_weapon={remove_weapon} />
+                />
         {/each}
 
 
