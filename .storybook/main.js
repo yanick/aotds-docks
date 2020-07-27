@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+    addons: ['@storybook/addon-actions/register'],
     stories: [ '../src/**/*stories.js' ],
     webpackFinal: (config) => {
         config.resolve.alias['~'] = path.resolve(__dirname, '../src/');

@@ -12,6 +12,7 @@ import { candidate_ship_types } from './ship_types';
 import structure from './structure';
 import cargo from './cargo';
 import streamlining from './streamlining';
+import carrier from './carrier';
 import { ceil } from '~/dux/utils';
 
 const set_ship_mass = action("set_ship_mass", payload());
@@ -36,7 +37,7 @@ const initial = {
   };
 
 const dux = new Updux({
-  subduxes: { ftl, engine, weaponry, structure, cargo, streamlining },
+  subduxes: { ftl, engine, weaponry, structure, cargo, streamlining, carrier },
   initial
 });
 
@@ -85,8 +86,12 @@ dux.addSubscription((store) =>
     createSelector(
         store => store.general.mass,
         store => store.general.ship_type,
-        (mass,type) => {
-            const candidates = candidate_ship_types(mass,false);
+        store => store.carrier.bays,
+        (mass,type,bays) => {
+            console.log({bays});
+            const candidates = candidate_ship_types(mass,bays > 0);
+
+            console.log({candidates});
             if( candidates.length === 0 ) return;
 
             if( candidates.find( ({name}) => name === type ) ) return;

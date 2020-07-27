@@ -34,7 +34,7 @@
         ship.dispatch.set_ship_type(value);
 
   let ship_types;
-  $: ship_types = candidate_ship_types($ship.general.mass,false).map(
+  $: ship_types = candidate_ship_types($ship.general.mass,$ship.carrier.bays>0).map(
     ({name}) => name
   );
 

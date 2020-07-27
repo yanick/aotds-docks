@@ -19,7 +19,6 @@
 
   import {getContext } from 'svelte';
 
-
   export let type = 'none';
   export let cost = 0;
   export let mass = 0;
