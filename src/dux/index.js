@@ -11,6 +11,8 @@ import { calc_ship_req } from "./utils";
 import { candidate_ship_types } from './ship_types';
 import structure from './structure';
 import cargo from './cargo';
+import streamlining from './streamlining';
+import { ceil } from '~/dux/utils';
 
 const set_ship_mass = action("set_ship_mass", payload());
 const set_name = action("set_name", payload());
@@ -34,7 +36,7 @@ const initial = {
   };
 
 const dux = new Updux({
-  subduxes: { ftl, engine, weaponry, structure, cargo },
+  subduxes: { ftl, engine, weaponry, structure, cargo, streamlining },
   initial
 });
 
@@ -61,6 +63,22 @@ dux.addMutation(set_ship_reqs, ({ cost, mass: used_mass }) =>
 // set ship's req
 dux.addSubscription((store) =>
   createSelector(calc_ship_req, (reqs) => store.dispatch(set_ship_reqs(reqs)))
+);
+
+dux.addSubscription((store) =>
+  createSelector(
+      store => store.general.mass,
+      store => store.streamlining.type,
+      (ship_mass, streamlining ) => {
+            const mass = ceil( ship_mass * ( 
+                streamlining === 'none' ? 0
+                : streamlining === 'partial' ? 5 : 10 
+            ) / 100 );
+            const cost = 2 * mass;
+
+            store.dispatch( dux.actions.set_streamlining_cost_mass({cost,mass}) );
+      }
+  )
 );
 
 dux.addSubscription((store) =>
@@ -92,9 +110,6 @@ dux.addSubscription((store) =>
       store.dispatch(ftl.actions.set_ftl_reqs(calc_ftl_reqs(type,ship_mass)))
   )
 );
-
-// to get around 3.00001 ceiling up to 4
-const ceil = number => Math.ceil( Math.round(10*number)/10 );
 
 dux.addSubscription( store => createSelector(
     ship => ship.general.mass,
