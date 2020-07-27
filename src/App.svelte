@@ -84,8 +84,7 @@
         <input type="button" value="add weapon" on:click={add_weapon}/>
 
         {#each weapons as weapon (weapon.id)}
-            <Weapon {...weapon} on:change_weapon={change_weapon}
-                />
+            <Weapon {weapon} id={weapon.id} cost={weapon.cost} mass={weapon.mass} />
         {/each}
 
 
