@@ -21,6 +21,6 @@ const ship_types = [
 ];
 
 export function candidate_ship_types(mass = 0, carrier = false) {
-    console.log(mass);
+    console.log({carrier});
   return ship_types.filter((c) => carrier == !!c.carrier).filter((c) => c.mass[0] <= mass).filter((c) => c.mass[1] >= mass);
 }

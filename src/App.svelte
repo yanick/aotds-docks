@@ -15,6 +15,7 @@
   import Weapon from '~C/Weapon';
   import Cargo from '~C/Cargo/index.svelte';
   import Streamlining from '~C/Streamlining/index.svelte';
+  import Carrier from '~C/Carrier';
 
     const ship = shipStore();
 
@@ -93,6 +94,7 @@
       <Streamlining {...$ship.streamlining} />
     </Section>
 
+    <Carrier {...$ship.carrier} />
 
 </main>
 
