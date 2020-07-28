@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 960 560" enable-background="new 0 0 960 560" xml:space="preserve">
+<g>
+	<polygon fill="none" stroke="#000000" stroke-width="17.9542" stroke-miterlimit="10" points="340,522.5 200,280 340,37.5 
+		620,37.5 760,280 620,522.5 	"/>
+	<polygon fill="none" stroke="#000000" stroke-width="13.6376" stroke-miterlimit="10" points="373.6,464.2 267.3,280 373.6,95.8 
+		586.4,95.8 692.7,280 586.4,464.2 	"/>
+	<line fill="none" stroke="#000000" stroke-width="13.6392" stroke-miterlimit="10" x1="692.7" y1="280" x2="760" y2="280"/>
+	<line fill="none" stroke="#000000" stroke-width="13.6392" stroke-miterlimit="10" x1="267.3" y1="280" x2="200" y2="280"/>
+	<line fill="none" stroke="#000000" stroke-width="13.6392" stroke-miterlimit="10" x1="373.6" y1="95.8" x2="340" y2="37.5"/>
+	<line fill="none" stroke="#000000" stroke-width="13.6392" stroke-miterlimit="10" x1="586.4" y1="95.8" x2="620" y2="37.5"/>
+	<line fill="none" stroke="#000000" stroke-width="13.6392" stroke-miterlimit="10" x1="586.4" y1="464.2" x2="620" y2="522.5"/>
+	<line fill="none" stroke="#000000" stroke-width="13.6392" stroke-miterlimit="10" x1="373.6" y1="464.2" x2="340" y2="522.5"/>
+</g>
+<g>
+	<path d="M497.6,380.2v-48h-87v-22.6l91.5-129.9h20.1v129.9h27.1v22.6h-27.1v48H497.6z M497.6,309.7v-90.4l-62.8,90.4H497.6z"/>
+</g>
+</svg>
