@@ -60,6 +60,10 @@
     font-size: smaller;
   }
 
+  .mass,div.cost {
+    padding: 0px 2em; justify-self: right;
+  }
+
   .mass {
     grid-column: 2;
   }

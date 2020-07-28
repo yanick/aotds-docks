@@ -3,6 +3,7 @@
   <input class="reset" type="button" value="reset" on:click={reset} />
 
   <ShipSpecs />
+
   <Propulsion
     ftl={$ship.ftl}
     engine={$ship.engine}
@@ -99,7 +100,7 @@
   main {
     display: grid;
     width: 60em;
-    grid-template-columns: 4fr 1fr 1fr;
+    grid-template-columns: 1fr 14em 8em;
     margin-left: auto;
     margin-right: auto;
   }
