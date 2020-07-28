@@ -104,6 +104,8 @@
     display: grid;
     width: 60em;
     grid-template-columns: 4fr 1fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   main :global(> *) {

@@ -16,5 +16,8 @@
 <style>
 label {
     font-size: var(--font-scale-8);
+    font-weight: lighter;
+    font-family: Dosis;
+    color:  var(--indigo-dye);
 }
 </style>
