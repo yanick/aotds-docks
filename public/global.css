@@ -1,11 +1,18 @@
-:root { 
-    --font-scale-8: calc(1rem/1.125/1.125);
-    --font-scale-9: calc(1rem/1.125);
-    --font-scale-10: 1rem;
-    --font-scale-11: calc(1rem * 1.125);
-    --font-scale-12: calc(1rem * 1.125 * 1.125);
+:root {
+    --font-scale-9: 0.75rem;
+    --font-scale-10: 1em;
+    --font-scale-11: 1.333rem;
+    --font-scale-12: 1.777rem;
+    --font-scale-13: 2.369rem;
+    --font-scale-14: 3.157rem;
+    --font-scale-15: 4.209rem;
 }
 
+small {font-size: var(--font-scale-9); }
+
+h1 {
+    font-size: var(--font-scale-14);
+}
 
 
 html, body {
