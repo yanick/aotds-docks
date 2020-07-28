@@ -31,6 +31,7 @@ module.exports = {
           options: {
             emitCss: true,
             hotReload: true,
+            dev: true,
           },
         },
       },
@@ -42,9 +43,15 @@ module.exports = {
            * For developing, use 'style-loader' instead.
            * */
           prod ? MiniCssExtractPlugin.loader : "style-loader",
-          "css-loader",
+            { loader: "css-loader",
+                options: {url: false}
+            }
         ],
       },
+    {
+        test: /\.svg$/,
+        loader: 'file-loader'
+    },
       {
         test: /\.s[ac]ss$/i,
         use: [

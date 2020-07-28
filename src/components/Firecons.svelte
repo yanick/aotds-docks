@@ -1,6 +1,6 @@
 <ShipItem {cost} {mass}>
     <Field label="firecons">
-    <input type="number" bind:value={nbr} />
+    <input type="number" class="short" bind:value={nbr} />
     </Field>
 </ShipItem>
 
@@ -12,7 +12,7 @@ import Field from '~C/Field';
     export let nbr, cost, mass = (0,0,0);
 
     const dispatch = createEventDispatcher();
-    $: dispatch( 'change_firecons', nbr); 
+    $: dispatch( 'change_firecons', nbr);
 
 </script>
 

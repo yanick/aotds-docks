@@ -28,3 +28,6 @@ export function calc_ship_req(ship) {
         cost: fp.sumBy('cost',items),
     }
 }
+
+// to get around 3.00001 ceiling up to 4
+export const ceil = number => Math.ceil( Math.round(10*number)/10 );

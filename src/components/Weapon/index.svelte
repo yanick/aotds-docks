@@ -1,46 +1,19 @@
 <ShipItem {cost} {mass}>
 
-<div class="remove" on:click={remove}>X</div>
+  <div class="weapon_row">
 
-<Field label="weapon type">
-<select bind:value={weapon_type}>
-    <option>beam</option>
-</select>
-</Field>
-
-<Field label="weapon class">
-<select bind:value={weapon_class}>
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-</select>
-</Field>
-
-<Field label="arcs">
-    <select bind:value={nbr_arcs}>
-        {#each arc_options[weapon_class]||[] as nbr_arcs (nbr_arcs)}
-        <option>{nbr_arcs}</option>
-        {/each}
-    </select>
-</Field>
+    <input type="button" class="button small red remove" value="remove"
+      on:click={remove} />
 
 
-<svg width="60px" height="60px">
-{#each all_arcs as arc (arc)}
-    <Arc {arc} radius={30} 
-        active={arcs.includes(arc)}
-        on:click={()=>click_arc(arc)}
-    />
-{/each}
-    <circle cx="30" cy="30" r="15" />
-
-    
-</svg>
-
+<svelte:component this={weapon_component[weapon_type]} {...weapon}
+    on:change={update}/>
+</div>
 </ShipItem>
 
 <script>
+  import {getContext } from 'svelte';
+
     import Arc from '../Weapons/Arc.svelte';
     import { weapon_cost_mass } from '../../dux/weapons/rules.js';
     import fp from 'lodash/fp';
@@ -48,84 +21,37 @@
     import { createEventDispatcher } from 'svelte';
     import ShipItem from '~C/ShipItem';
     import Field from '~C/Field';
+    import Beam from './Beam';
+    import Submunition from './Submunition';
+    import PointDefenceSystem from './PointDefenceSystem';
+    import Scattergun from './Scattergun';
+    import Needle from './Needle';
+    import dux from '~/dux';
 
-    const all_arcs = [ 'FS', 'F', 'FP', 'AP', 'A', 'AS' ];
+  const weapon_component = {
+    beam: Beam,
+    'submunition': Submunition,
+    'pds': PointDefenceSystem,
+    scattergun: Scattergun,
+    needle: Needle,
+  };
 
-    export let weapon_type;
-    export let weapon_class;
+    export let weapon = {};
     export let id;
-    export let arcs = [];
     export let cost;
     export let mass;
+    export let ship_change = getContext('ship_change') || ( () => {} );
 
-    let arc_options = {
-        1: [ 6],
-        2: [ 3, 6 ],
-        3: [ 1, 2, 3, 4, 5, 6, 'broadside' ],
-        4: [ 1, 2, 3, 4, 5, 6, 'broadside' ]
-    };
+    let weapon_type = weapon.weapon_type;
 
-    let nbr_arcs = 6;
-    $: console.log(weapon_class);
-    $: nbr_arcs = arc_options[weapon_class][0];
-
-    $: console.log({arcs,nbr_arcs})
-
-    $: if ( arcs.length !== nbr_arcs ) {
-        if( nbr_arcs === 'broadside' ) {
-            arcs = all_arcs.filter( arc => arc.length === 1 )
-        }
-        else{
-
-        let first_index = all_arcs.findIndex( arc => arcs[0] );
-        if( first_index === -1 ) first_index = 0;
-
-        const new_arcs = [];
-
-        _.range(nbr_arcs).forEach( i => {
-            new_arcs.push( all_arcs[first_index] )
-            first_index = ( first_index + 1 ) % all_arcs.length;
-        });
-
-        arcs = new_arcs;
-        }
-    }
-
-    const click_arc = (first_arc) => {
-        if( nbr_arcs === 'broadside' ) return;
-
-        let first_index = all_arcs.findIndex( arc => arc === first_arc );
-
-        const new_arcs = [];
-
-        _.range(nbr_arcs).forEach( i => {
-            new_arcs.push( all_arcs[first_index] );
-            first_index = ( first_index + 1 ) % all_arcs.length;
-        });
-
-        arcs = new_arcs;
-        
-    }
-
-    let i = 1;
-    $: if(weapon_class) i = 1;
-
-    $: console.log( "id", id);
-    $: console.log( "weapon_class", weapon_class);
-    $: console.log( "weapon_type", weapon_type);
-    $: console.log( "arcs", arcs);
-    const dispatch = createEventDispatcher();
-    let cache = '';
-    $: cache = arcs.join(":");
-    $: { 
-        //console.log( { id, weapon_class, weapon_type, arcs: cache.split(":") });
-        dispatch( 'change_weapon', { id, weapon_class, weapon_type, arcs:
-        cache.split(":") });
-    }
+    const remove = () => ship_change( dux.actions.remove_weapon(id) );
 
 
-    const remove = () => dispatch( 'remove_weapon', id );
-
+  const update = ({detail}) => {
+    ship_change( dux.actions.set_weapon({
+      id, weapon_type, ...detail
+    }) );
+  }
 </script>
 
 <style>
@@ -184,27 +110,14 @@
   grid-row: 4;
 }
 
-.arc {
-    display: flex;
-    flex-direction: column;
-    margin-right: 1em;
-}
-
 .add-weapon {
     display: block;
 }
 
-circle {
-    fill: white;
-}
-
-.remove {
-    width: 1em;
-    flex: 0;
-    color: white;
-    background-color: black;
-    border-radius: 0.5em;
-    height: 1em;
-}
+  .weapon_row {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+  }
 
 </style>
