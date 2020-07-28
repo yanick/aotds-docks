@@ -2,10 +2,7 @@
 <main>
   <input class="reset" type="button" value="reset" on:click={reset} />
 
-  <Identification />
-
-  <ShipCost />
-
+  <ShipSpecs />
   <Propulsion
     ftl={$ship.ftl}
     engine={$ship.engine}
@@ -51,11 +48,10 @@
   import Header from './Header';
   import shipStore from "~/stores/ship";
 
+  import ShipSpecs from './ShipSpecs/index.svelte';
   import ShipItem from "./ShipItem/index.svelte";
-  import ShipCost from "./ShipCost.svelte";
   import Field from "./Field/index.svelte";
   import Hull from "./Hull.svelte";
-  import Identification from "./Identification.svelte";
   import Firecons from "./Firecons.svelte";
   import Propulsion from "./Propulsion/index.svelte";
   import Section from "~C/Section";
