@@ -1,10 +1,14 @@
 <ShipItem {cost} {mass}>
 
-<div class="remove" on:click={remove}>X</div>
+  <div class="weapon_row">
+
+    <input type="button" class="button small red remove" value="remove"
+      on:click={remove} />
 
 
-<svelte:component this={weapon_component[weapon_type]} {...weapon} 
+<svelte:component this={weapon_component[weapon_type]} {...weapon}
     on:change={update}/>
+</div>
 </ShipItem>
 
 <script>
@@ -110,13 +114,10 @@
     display: block;
 }
 
-.remove {
-    width: 1em;
-    flex: 0;
-    color: white;
-    background-color: black;
-    border-radius: 0.5em;
-    height: 1em;
-}
+  .weapon_row {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+  }
 
 </style>

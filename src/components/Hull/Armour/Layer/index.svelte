@@ -16,8 +16,14 @@
 
     const dispatch = createEventDispatcher();
 
-    $: dispatch( 'ship_change', 
+    $: dispatch( 'ship_change',
         dux.actions.set_armour_layer({layer,rating})
     );
 
 </script>
+
+<style>
+  input {
+    width: 5em;
+  }
+  </style>

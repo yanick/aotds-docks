@@ -1,12 +1,16 @@
 <ShipItem {cost} {mass}>
   <Field label="streamlining">
   <div>
+    <label>
     <input type="radio" bind:group={type} value="none" />
-    <label>none</label>
+    none</label>
+    <label>
+
     <input type="radio" bind:group={type} value="partial" />
-    <label>partial</label>
+    partial</label>
+    <label>
     <input type="radio" bind:group={type} value="full" />
-    <label>full</label>
+    full</label>
     </div>
   </Field>
 </ShipItem>
@@ -30,4 +34,7 @@
 
   <style>
   div { display: flex }
+  label {
+    margin-left: 1em;
+  }
   </style>

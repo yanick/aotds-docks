@@ -1,4 +1,4 @@
-<input class="add-weapon" type="button" value="add" 
+<input class="add-weapon button small blue" type="button" value="add"
     on:click={add} />
 
 <div class="weapon">
@@ -22,14 +22,14 @@
 
 <svg width="60px" height="60px">
 {#each arcs as arc (arc)}
-    <Arc {arc} radius={30} 
+    <Arc {arc} radius={30}
         active={selected_arc[arc]}
         on:click={()=>click_arc(arc)}
     />
 {/each}
     <circle cx="30" cy="30" r="15" />
 
-    
+
 </svg>
 
     <div>{weapon.cost}</div>
@@ -65,7 +65,7 @@
         arcs.map( arc => [ arc, false ] )
     );
 
-    const nbr_selected_arcs = () => Object.values(selected_arc).filter( 
+    const nbr_selected_arcs = () => Object.values(selected_arc).filter(
         x => x ).length;
 
     $: if ( nbr_selected_arcs() !== nbr_arcs ) {
@@ -109,7 +109,7 @@
         });
 
         selected_arc = new_arcs;
-        
+
     }
 
     let weapon = {};

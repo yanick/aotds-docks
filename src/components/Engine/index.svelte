@@ -35,4 +35,5 @@ div {
     align-items: end;
 }
 label { margin-left: 2em; }
+  input[type="number"] { width: 5em; }
 </style>

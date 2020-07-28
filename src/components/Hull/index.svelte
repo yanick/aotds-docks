@@ -13,6 +13,9 @@
 
 <Armour {armour} on:ship_change />
 
+<Cargo {...cargo} on:set_cargo />
+
+<Streamlining {...streamlining} />
 </Section>
 
 <script>
@@ -23,10 +26,15 @@
     import ShipItem from '~C/ShipItem';
     import Screens from './Screens';
     import Armour from './Armour';
+    import Cargo from './Cargo';
+    import Streamlining from './Streamlining';
 
     export let cost, mass, ship_mass, rating, screens, armour = (
         0, 0, 10, 1, [], []
     );
+
+  export let cargo = {};
+  export let streamlining = {};
 
     let min, max;
   $: min = Math.ceil(ship_mass / 10);
@@ -39,4 +47,5 @@ const dispatch = createEventDispatcher();
 </script>
 
 <style>
+  input { width: 5em; }
 </style>

@@ -14,7 +14,16 @@
 </script>
 
 <style>
+  div > :global(*) {
+    margin-left: 1em;
+  }
+  div > label {
+    margin-left: 0em;
+  }
 label {
     font-size: var(--font-scale-8);
+    font-weight: lighter;
+    font-family: Dosis;
+    color:  var(--indigo-dye);
 }
 </style>

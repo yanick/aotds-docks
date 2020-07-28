@@ -1,9 +1,7 @@
-<div class="ship-item">
-    <slot />
+    <div><slot /></div>
 
     <div class="mass" bind:this={mass_el}>{ mass }</div>
     <div class="cost" bind:this={cost_el}>{ cost }</div>
-</div>
 
 <script>
   import { tick } from 'svelte';
@@ -27,6 +25,14 @@
 </script>
 
 <style>
+  div {
+    margin-bottom: 1em;
+
+  }
+  .cost,.mass { padding: 0px 2em;  text-align: right; }
+  .cost { grid-column: 3 }
+  .mass { grid-column: 2 }
+
   .ship-item {
     display: flex;
   }
@@ -35,7 +41,6 @@
         flex: 1;
     }
 
-  .cost,.mass { width: 4em; flex: inherit; }
   img {
     width: 0.75em;
   }

@@ -1,5 +1,4 @@
-<div class="identification">
-
+<div>
     <Field label="ship class" value={general.ship_class}
         on:change={change_class} />
 
@@ -10,13 +9,12 @@
         {/each}
       </select>
     </Field>
-
 </div>
 
 <script>
   import { getContext } from 'svelte';
 
-  import Field from './Field/index.svelte';
+  import Field from '~C/Field';
   import { candidate_ship_types } from '~/dux/ship_types';
 
   export let ship = getContext('ship');
@@ -41,9 +39,9 @@
 </script>
 
 <style>
-.identification {
-    grid-column: span 3;
+  div {
     display: flex;
-    justify-content: space-around;
-}
+    align-items: end;
+    gap: 2em;
+  }
 </style>
