@@ -1,9 +1,9 @@
 
 <Section label="propulsion">
 
-    <Ftl {...ftl} on:change_ftl />
-
     <Engine {...engine} on:change_engine />
+
+    <Ftl {...ftl} on:change_ftl />
 
 </Section>
 

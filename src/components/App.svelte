@@ -52,7 +52,7 @@
   import ShipSpecs from './ShipSpecs/index.svelte';
   import ShipItem from "./ShipItem/index.svelte";
   import Field from "./Field/index.svelte";
-  import Hull from "./Hull.svelte";
+  import Hull from "./Hull";
   import Firecons from "./Firecons.svelte";
   import Propulsion from "./Propulsion/index.svelte";
   import Section from "~C/Section";

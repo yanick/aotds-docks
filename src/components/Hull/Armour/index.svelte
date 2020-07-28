@@ -46,7 +46,11 @@
 <style>
     .layers {
         display: flex;
-        
+
     }
-    
+
+    input {
+      width: 5em;
+    }
+
 </style>

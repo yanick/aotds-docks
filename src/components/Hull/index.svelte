@@ -39,4 +39,5 @@ const dispatch = createEventDispatcher();
 </script>
 
 <style>
+  input { width: 5em; }
 </style>

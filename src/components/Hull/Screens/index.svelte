@@ -1,5 +1,5 @@
-
 <ShipItem { cost } { mass }>
+  <div>
 
   <Field label="screens">
     <input type="number" bind:value={standard} min="0" />
@@ -8,6 +8,7 @@
   <Field label="advanced screens">
     <input type="number" bind:value={advanced} min="0" />
   </Field>
+</div>
 
 </ShipItem>
 
@@ -33,5 +34,9 @@
 <style>
   input {
     width: 3em;
+  }
+  div {
+    display: flex;
+    gap: 2em;
   }
   </style>
