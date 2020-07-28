@@ -4,12 +4,20 @@
 <Notes show={show_notes} on:close={toggle_notes} />
 {/if}
 
+{#if output === 'json'}
+  <OutputJson ship={$ship}
+    on:close={() => set_output(null)}/>
+{/if}
+
 <main>
   <nav>
     <input class="reset button small red" type="button"  value="reset" on:click={reset} />
 
     <div class="spacer" />
-    <input type="button" class="button small" value="notes" on:click={toggle_notes} />
+    <input type="button" class="button small notes" value="notes" on:click={toggle_notes} />
+
+    <input type="button" class="button small green" value="json"
+      on:click={() => set_output('json')} />
   </nav>
 
   <ShipSpecs />
@@ -62,6 +70,7 @@
 
   import Header from './Header';
   import shipStore from "~/stores/ship";
+  import OutputJson from './Output/Json.svelte';
 
   import ShipSpecs from './ShipSpecs/index.svelte';
   import Notes from './Notes';
@@ -108,8 +117,13 @@
 
   setContext("ship_change", ship.dispatch);
 
-  let show_notes = true;
+  let show_notes = false;
   const toggle_notes = () => show_notes = !show_notes;
+
+  let output = null;
+
+  const set_output = value => output = value;
+
 </script>
 
 <style>
@@ -144,5 +158,9 @@
     width: var(--main-width);
     margin: 0 auto;
     text-align: right;
+  }
+
+  .notes {
+    margin-right: 2em;
   }
 </style>
