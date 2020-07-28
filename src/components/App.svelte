@@ -1,6 +1,8 @@
 <Header />
 <main>
-  <input class="reset" type="button" value="reset" on:click={reset} />
+  <nav>
+    <input class="reset button small red" type="button"  value="reset" on:click={reset} />
+  </nav>
 
   <ShipSpecs />
 
@@ -17,6 +19,9 @@
     screens={$ship.structure.screens}
     armour={$ship.structure.armour}
     on:set_screens={set_screens}
+    cargo={$ship.cargo}
+    streamlining={$ship.streamlining}
+    on:set_cargo={ship_dispatch}
     on:ship_change={ship_dispatch} />
 
   <Section label="weaponry">
@@ -32,11 +37,6 @@
       <Weapon {weapon} id={weapon.id} cost={weapon.cost} mass={weapon.mass} />
     {/each}
 
-  </Section>
-
-  <Section label="misc">
-    <Cargo {...$ship.cargo} on:set_cargo={ship_dispatch} />
-    <Streamlining {...$ship.streamlining} />
   </Section>
 
   <Carrier {...$ship.carrier} />
@@ -57,8 +57,6 @@
   import Propulsion from "./Propulsion/index.svelte";
   import Section from "~C/Section";
   import Weapon from "~C/Weapon";
-  import Cargo from "~C/Cargo/index.svelte";
-  import Streamlining from "~C/Streamlining/index.svelte";
   import Carrier from "~C/Carrier";
   import ADFC from "~C/Weaponry/ADFC";
   import AddWeapon from "~C/Weaponry/AddWeapon";

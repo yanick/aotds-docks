@@ -8,7 +8,7 @@
     <option value="needle">needle weapon</option>
 </select>
 
-<input type="button" value="add weapon" on:click={ add_weapon }/>
+<input type="button" value="add weapon" class="button small blue" on:click={ add_weapon }/>
 
 </Field>
 
