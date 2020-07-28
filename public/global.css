@@ -6,11 +6,21 @@
     --font-scale-13: 2.369rem;
     --font-scale-14: 3.157rem;
     --font-scale-15: 4.209rem;
+
+    --oxford-blue: hsla(226, 60%, 10%, 1);
+    --royal-blue-dark: hsla(218, 100%, 16%, 1);
+    --indigo-dye: hsla(209, 95%, 24%, 1);
+    --cg-blue: hsla(193, 80%, 35%, 1);
+    --white: hsla(20, 60%, 99%, 1);
+
+    --main-width: 60em;
 }
 
 small {font-size: var(--font-scale-9); }
 
 h1 {
+    margin: 0px;
+    padding: 0px;
     font-size: var(--font-scale-14);
 }
 
@@ -22,6 +32,7 @@ html, body {
 }
 
 body {
+    background-color: var(--white);
 	color: #333;
 	margin: 0;
 	padding: 8px;

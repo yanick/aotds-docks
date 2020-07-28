@@ -1,8 +1,4 @@
-<header>
-  <h1>The Shipyard <span class="subtitle">a <a
-        href="https://shop.groundzerogames.co.uk/rules.html">Full Thrust</a> ship builder</span></h1>
-  </header>
-
+<Header />
 <main>
   <input class="reset" type="button" value="reset" on:click={reset} />
 
@@ -52,6 +48,7 @@
 <script>
   import { setContext } from "svelte";
 
+  import Header from './Header';
   import shipStore from "~/stores/ship";
 
   import ShipItem from "./ShipItem/index.svelte";
@@ -115,13 +112,5 @@
 
   input.reset {
     grid-column: 2;
-  }
-  h1 {
-    font-family: Faktos;
-  }
-
-  h1 .subtitle {
-    padding-left: 2em;
-    font-size: var(--font-scale-12);
   }
 </style>
