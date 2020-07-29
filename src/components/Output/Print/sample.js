@@ -2,7 +2,7 @@ export default {
   "ftl": {
     "mass": 0,
     "cost": 0,
-    "type": "none"
+    "type": "standard"
   },
   "engine": {
     "mass": 40,

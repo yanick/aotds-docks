@@ -7,12 +7,19 @@
     advanced={ship.structure.hull.advanced}
     ship_mass={ship.general.mass}
   />
+
+  <MainSystems
+    ftl={ship.ftl.type}
+    engine={ship.engine.rating}
+  />
+
 </div>
 
 <script>
   import Identification from './Identification';
   import Integrity from './Hull/Integrity';
   import Armour from './Hull/Armour';
+  import MainSystems from './MainSystems';
   export let ship;
 
 </script>
