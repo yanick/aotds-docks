@@ -1,6 +1,8 @@
 <div>
   <Identification {...ship.general} />
 
+  <Weapons weapons={ship.weaponry.weapons} />
+
   <Armour armour={ship.structure.armour} />
   <Integrity
     rating={ship.structure.hull.rating}
@@ -20,6 +22,7 @@
   import Integrity from './Hull/Integrity';
   import Armour from './Hull/Armour';
   import MainSystems from './MainSystems';
+  import Weapons from './Weapons';
   export let ship;
 
 </script>
