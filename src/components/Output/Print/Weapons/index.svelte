@@ -19,4 +19,7 @@
 </script>
 
 <style>
+  div {
+    margin-bottom: 2em;
+  }
 </style>

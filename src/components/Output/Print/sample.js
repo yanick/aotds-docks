@@ -69,8 +69,8 @@ export default {
       "mass": 22
     },
     "screens": {
-      "standard": 5,
-      "advanced": 0,
+      "standard": 2,
+      "advanced": 1,
       "cost": 105,
       "mass": 35
     },

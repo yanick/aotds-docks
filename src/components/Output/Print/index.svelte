@@ -1,14 +1,17 @@
-<div>
+<div class="ship-sheet">
   <Identification {...ship.general} />
 
   <Weapons weapons={ship.weaponry.weapons} />
 
-  <Armour armour={ship.structure.armour} />
-  <Integrity
-    rating={ship.structure.hull.rating}
-    advanced={ship.structure.hull.advanced}
-    ship_mass={ship.general.mass}
+  <div class="section-2">
+  <Hull structure={ship.structure}
+    ship_mass={ship.general.mass} />
+
+  <Systems
+    firecons={ship.weaponry.firecons.nbr}
+    screens={ship.structure.screens}
   />
+</div>
 
   <MainSystems
     ftl={ship.ftl.type}
@@ -18,20 +21,31 @@
 </div>
 
 <script>
+  import _ from 'lodash';
+
   import Identification from './Identification';
-  import Integrity from './Hull/Integrity';
-  import Armour from './Hull/Armour';
   import MainSystems from './MainSystems';
+  import Hull from './Hull';
   import Weapons from './Weapons';
+  import Systems from './Systems';
+
   export let ship;
 
 </script>
 
 <style>
-div {
+.ship-sheet {
   width: 4.25in;
   height: 5.5in;
   border: 1px solid black;
   padding: 1em;
 }
+
+.section-2 {
+  display: flex;
+  align-items: start;
+}
+
+
+
 </style>
