@@ -115,7 +115,7 @@
    ],
    "license": "ISC",
    "main": "index.js",
-   "name": "shipyard",
+   "name": "aotds-docks",
    "prettier": {
       "svelteSortOrder": "markup-scripts-styles",
       "svelteStrictMode": false
