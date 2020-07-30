@@ -1,5 +1,21 @@
 <Header />
 
+  <nav>
+    <input class="reset button small red" type="button"  value="reset" on:click={reset} />
+
+    <div class="spacer" />
+    <input type="button" class="button small notes" value="notes" on:click={toggle_notes} />
+
+    <ul class="button-group">
+    <input type="button" class="button small green" value="editor"
+      on:click={() => set_output(null)} />
+    <input type="button" class="button small green" value="json"
+      on:click={() => set_output('json')} />
+    <input type="button" class="button small green" value="print"
+      on:click={() => set_output('print')} />
+    </ul>
+  </nav>
+
 {#if show_notes}
 <Notes show={show_notes} on:close={toggle_notes} />
 {/if}
@@ -7,18 +23,11 @@
 {#if output === 'json'}
   <OutputJson ship={$ship}
     on:close={() => set_output(null)}/>
-{/if}
+  {:else if output === 'print' }
+    <Print ship={$ship} />
+{:else}
 
 <main>
-  <nav>
-    <input class="reset button small red" type="button"  value="reset" on:click={reset} />
-
-    <div class="spacer" />
-    <input type="button" class="button small notes" value="notes" on:click={toggle_notes} />
-
-    <input type="button" class="button small green" value="json"
-      on:click={() => set_output('json')} />
-  </nav>
 
   <ShipSpecs />
 
@@ -65,12 +74,14 @@
       href="https://github.com/yanick/aotds-shipyard">Github</a>
   </footer>
 
+{/if}
 <script>
   import { setContext } from "svelte";
 
   import Header from './Header';
   import shipStore from "~/stores/ship";
   import OutputJson from './Output/Json.svelte';
+  import Print from './Output/Print';
 
   import ShipSpecs from './ShipSpecs/index.svelte';
   import Notes from './Notes';
@@ -129,8 +140,8 @@
 <style>
   main {
     display: grid;
-    width: 60em;
     grid-template-columns: 1fr 14em 8em;
+    width: 60em;
     margin-left: auto;
     margin-right: auto;
   }
@@ -138,7 +149,10 @@
   nav {
     grid-column: 1 / span 3 !important;
     display: flex;
-    margin: 1em 0;
+    width: 60em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
   }
 
   nav .spacer {

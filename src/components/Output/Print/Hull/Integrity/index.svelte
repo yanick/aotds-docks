@@ -1,7 +1,7 @@
 <div>
-  {#each rows as row (row)}
+  {#each rows as row,i (i)}
     <div class="row">
-      {#each row as item (item)}
+      {#each row as item,j (j)}
         <div class="cell">
           {#if item}
             <img src="icons/crew-star.svg" alt="crew loss threshold" />

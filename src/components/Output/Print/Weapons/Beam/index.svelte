@@ -14,7 +14,6 @@
 
 <style>
   div :global(path) {
-    fill: white;
   }
   div :global(path:hover) {
     fill: white;
