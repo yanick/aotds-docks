@@ -116,8 +116,12 @@
 
   .weapon_row {
     display: flex;
-    gap: 2em;
     align-items: center;
   }
+
+  .weapon_row > :global(*) {
+    margin-right: 2em;
+  }
+
 
 </style>

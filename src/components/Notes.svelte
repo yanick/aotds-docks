@@ -19,6 +19,11 @@
       as closely as possible.
     </p>
 
+
+    <p>The app is mostly developed for Firefox. I also check as much as I
+    can that I don't mess things too badly on Chrome. For the other
+    browsers... caveat emptor.</p>
+
     <p>
       Written by
       <a href="https://twitter.com/yenzie">Yanick Champoux</a>
