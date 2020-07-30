@@ -1,5 +1,5 @@
 <header>
-  <h1>The Shipyard</h1>
+  <h1>The Docks</h1>
   <h2>a <a
         href="https://shop.groundzerogames.co.uk/rules.html">Full Thrust</a> ship builder</h2>
   </header>
