@@ -3,7 +3,7 @@
       <input type="button" class="button small red" value="close"
         on:click={close}/>
     </div>
-    <h3>welcome to the shipyard</h3>
+    <h3>welcome to the docks</h3>
 
     <p>
       This app is a ship builder for the game

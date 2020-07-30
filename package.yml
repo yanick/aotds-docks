@@ -4,7 +4,7 @@ _merge:
   - dependencies
   - devDependencies
 
-name: shipyard
+name: aotds-docks
 description: Full Thrust ship builder
 
 author: 'Yanick Champoux <yanick@babyl.ca>'
