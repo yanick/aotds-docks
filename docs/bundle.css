@@ -28,5 +28,5 @@ div.svelte-6w28yb{display:flex }label.svelte-6w28yb{margin-left:1em}
 input.svelte-x10nn1{width:5em}
 label.svelte-1ozsoxu{display:inline;margin-right:1em}
 div.svelte-3grq2v{display:flex;align-items:end}label.svelte-3grq2v{margin-left:2em}input[type="number"].svelte-3grq2v{width:5em}
-.weapon>.svelte-1irejno{margin-right:2em}.weapon_row.svelte-1irejno{display:flex;gap:2em;align-items:center}
+.weapon>.svelte-1vypk50{margin-right:2em}.weapon_row.svelte-1vypk50{display:flex;align-items:center}.weapon_row.svelte-1vypk50>*{margin-right:2em}
 main.svelte-4zjur4.svelte-4zjur4{display:grid;grid-template-columns:1fr 14em 8em;width:60em;margin-left:auto;margin-right:auto}nav.svelte-4zjur4.svelte-4zjur4{grid-column:1 / span 3 !important;display:flex;width:60em;margin-left:auto;margin-right:auto;margin-bottom:1em}nav.svelte-4zjur4 .spacer.svelte-4zjur4{flex:1}main > *{grid-column:1}input.reset.svelte-4zjur4.svelte-4zjur4{grid-column:2}footer.svelte-4zjur4.svelte-4zjur4{width:var(--main-width);margin:0 auto;text-align:right}.notes.svelte-4zjur4.svelte-4zjur4{margin-right:2em}
