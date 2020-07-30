@@ -1,4 +1,4 @@
-<div class="ship-sheet">
+<aside class="ship-sheet" transition:fade>
   <Identification {...ship.general} />
 
   <Weapons weapons={ship.weaponry.weapons} />
@@ -18,7 +18,7 @@
     engine={ship.engine.rating}
   />
 
-</div>
+</aside>
 
 <script>
   import _ from 'lodash';
@@ -30,6 +30,8 @@
   import Systems from './Systems';
 
   export let ship;
+
+    import { fly, fade } from 'svelte/transition';
 
 </script>
 

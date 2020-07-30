@@ -22,4 +22,8 @@
   div {
     margin-bottom: 2em;
   }
+  .beams {
+    display: flex;
+    justify-content: space-evenly;
+  }
 </style>
