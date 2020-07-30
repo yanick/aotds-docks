@@ -1,12 +1,13 @@
 
-<svg width="60px" height="60px">
+<svg width="{size}px" height="{size}px">
 {#each all_arcs as arc (arc)}
-    <Arc {arc} radius={30} 
+  <Arc {arc} radius={size/2}
         active={selected.includes(arc)}
         on:click={()=>click_arc(arc)}
     />
 {/each}
-    <circle cx="30" cy="30" r="15" />
+    <circle cx="50%" cy="50%" r={size /3} />
+    <slot />
 </svg>
 
 <script>
@@ -16,6 +17,7 @@
     const all_arcs = [ 'FS', 'F', 'FP', 'AP', 'A', 'AS' ];
 
     export let selected = [];
+  export let size = 60;
 
   const dispatch = createEventDispatcher();
 
